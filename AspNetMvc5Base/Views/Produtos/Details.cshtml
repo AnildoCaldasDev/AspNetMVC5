@@ -1,0 +1,42 @@
+﻿
+@model AspNetMvc5Base.Models.Produto
+@{
+    ViewBag.Title = "Detalhes";
+}
+<h3>Detalhes do Produto</h3>
+<hr />
+<div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Nome, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Nome,
+                                   new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Preco, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Preco,
+                          new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Categoria.CategoriaNome, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.CategoriaId, ((String)ViewBag.Categoria),
+                           new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <img src="@Model.Imagem" alt="@Model.Nome image" width="400" height="600" class="img-thumbnail" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+</div>

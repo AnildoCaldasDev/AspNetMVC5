@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AspNetMvc5Base.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 class="text-center">Listagem de Produtos</h3>
+<p>
+    @Html.ActionLink("Novo Produto", "Create", "ProdutosADO", new { @class = "btn btn-success pull-right " })
+</p>
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Categoria.CategoriaNome)</th>
+        <th>@Html.DisplayNameFor(model => model.Nome) </th>
+        <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+        <th>@Html.DisplayNameFor(model => model.Preco)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+            <td>@Html.DisplayFor(modelItem => item.Preco)</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ProdutoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoId }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.ProdutoId })
+            </td>
+        </tr>
+    }
+</table>
+
