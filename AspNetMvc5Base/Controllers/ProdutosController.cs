@@ -29,6 +29,17 @@ namespace AspNetMvc5Base.Controllers
         public ActionResult Create()
         {
             ViewBag.Categorias = db.Categorias.ToList();
+
+
+            //Somente para Exemplos
+            //var listMultiCategorias = db.Categorias.Select(c => new
+            //{
+            //    CategoriaId = c.CategoriaId,
+            //    CategoriaNome = c.CategoriaNome
+            //}).ToList();
+            //ViewBag.CategoriasMultiplas = new MultiSelectList(listMultiCategorias, "CategoriaId", "CategoriaNome");
+
+
             var model = new ProdutoViewModel();
 
             return View(model);
